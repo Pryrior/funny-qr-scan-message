@@ -1,9 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>QR Scan Surprise</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Facts</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
 </head>
 <body>
-    <h1 style="text-align: center;">Why did you clcik it?</h1>
-</body>
-</html>
+<style type="text/css">
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Light aquamarine background */
+}
+.header {
+    background-color: #e0f7fa; /* Lighter blue/aquamarine shade */
+    color: black; /* Darker text for contrast */
+    padding: 0px 0px; /* Adjust padding */
+    position: fixed; /* Keep header fixed at the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Keep it above other content */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* Optional border for a subtle effect */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Center items vertically */
+}
+
+.header-content {
+    display: flex; /* Use flexbox for the logo and text */
+    flex-direction: column; /* Stack title and subtitle vertically */
+    margin-left: 20px; /* Add margin for spacing */
+}
+
+.logo {
+    height: 100px; /* Adjust logo size */
+    margin-left: auto; /* This will push logo to the right */
+}
+
+main {
+    padding-top: 60px; /* Space to prevent content from being hidden behind the header */
+}
+
+.fact-tab {
+    background: linear-gradient(145deg, #ffffff, #e0f7fa); /* Changed to white to light aquamarine gradient */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow effect */
+    margin: 10px; /* Spacing between each fact */
+    padding: 15px; /* Inner spacing */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animation on hover */
+}
+.fact-tab:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+</style>
+    <header class="header">
+        <div class="header-content">
+            <h1>Random Facts</h1>
+            <p style="font-size: small; margin-top: -25px;">Waste your time reading these.<br> I might add more in the future.</p>
+        </div>
+        <img src="logo.png" alt="Logo" class="logo"> <!-- Replace with your logo file -->
+    </header>
+    
+    <main>
+        <div class="fact-tab"><span>1. Honey never spoils.</span><br></div>
+        <div class="fact-tab"><span>2. Bananas are berries, but strawberries aren't.</span><br></div>
+        <div class="fact-tab"><span>3. Octopuses have three hearts.</span><br></div>
+        <div class="fact-tab"><span>4. Cows have best friends.</span><br></div>
+        <div class="fact-tab"><span>5. A group of flamingos is called a "flamboyance."</span><br></div>
+        <div class="fact-tab"><span>6. The Eiffel Tower can be 15 cm taller in summer.</span><br></div>
+        <div class="fact-tab"><span>7. Wombat poop is cube-shaped.</span><br></div>
+        <div class="fact-tab"><span>8. Humans share 50% of their DNA with bananas.</span><br></div>
+        <div class="fact-tab"><span>9. The shortest war lasted 38 minutes (Britain vs. Zanzibar).</span><br></div>
+        <div class="fact-tab"><span>10. A jiffy is an actual unit of time (1/100th of a second).</span><br></div>
+        <div class="fact-tab"><span>11. An octopus can taste with its arms.</span><br></div>
+        <div class="fact-tab"><span>12. The longest time between two twins being born is 87 days.</span><br></div>
+        <div class="fact-tab"><span>13. A snail can sleep for three years.</span><br></div>
+        <div class="fact-tab"><span>14. Sea otters hold hands when sleeping.</span><br></div>
+        <div class="fact-tab"><span>15. A day on Venus is longer than a year on Venus.</span><br></div>
+        <div class="fact-tab"><span>16. The world's largest desert is Antarctica.</span><br></div>
+        <div class="fact-tab"><span>17. Cheetahs can't roar, but they can meow.</span><br></div>
+        <div class="fact-tab"><span>18. Elephants are the only mammals that can't jump.</span><br></div>
+        <div class="fact-tab"><span>19. The fingerprints of a koala are so close to humans' that they can taint crime scenes.</span><br></div>
+        <div class="fact-tab"><span>20. Sloths can hold their breath longer than dolphins can.</span><br></div>
+        <div class="fact-tab"><span>21. The heart of a blue whale is as big as a small car.</span><br></div>
+        <div class="fact-tab"><span>22. A single strand of spaghetti is called a "spaghetto."</span><br></div>
+        <div class="fact-tab"><span>23. Avocados are toxic to birds.</span><br></div>
+        <div class="fact-tab"><span>24. The inventor of the Pringles can is buried in one.</span><br></div>
+        <div class="fact-tab"><span>25. Banging your head against a wall burns 150 calories an hour.</span><br></div>
+        <div class="fact-tab"><span>26. The world's oldest known "your mom" joke is 3,500 years old.</span><br></div>
+        <div class="fact-tab"><span>27. A crocodile can't stick its tongue out.</span><br></div>
+        <div class="fact-tab"><span>28. The dot over the lowercase "i" is called a tittle.</span><br></div>
+        <div class="fact-tab"><span>29. A shark is the only fish that can blink with both eyes.</span><br></div>
+        <div class="fact-tab"><span>30. The world's smallest reptile was discovered in 2021.</span><br></div>
+        <div class="fact-tab"><span>31. The word "nerd" was first coined by Dr. Seuss in "If I Ran the Zoo."</span><br></div>
+        <div class="fact-tab"><span>32. Butterflies taste with their feet.</span><br></div>
+        <div class="fact-tab"><span>33. Humans are the only animals that blush.</span><br></div>
+        <div class="fact-tab"><span>34. A lion's roar can be heard from five miles away.</span><br></div>
+        <div class="fact-tab"><span>35. The average person walks the equivalent of three times around the world in a lifetime.</span><br></div>
+        <div class="fact-tab"><span>36. There are more fake flamingos in the U.S. than real ones.</span><br></div>
+        <div class="fact-tab"><span>37. The inventor of the microwave oven was Raytheon engineer Percy Spencer.</span><br></div>
+        <div class="fact-tab"><span>38. A goldfish can live for over 40 years.</span><br></div>
+        <div class="fact-tab"><span>39. A group of jellyfish is called a "smack."</span><br></div>
+        <div class="fact-tab"><span>40. Most of the dust in your home is made of dead skin cells.</span><br></div>
+        <div class="fact-tab"><span>41. The longest place name in the world is 85 letters long.</span><br></div>
+        <div class="fact-tab"><span>42. You can hear a blue whale's heartbeat from over two miles away.</span><br></div>
+        <div class="fact-tab"><span>43. A polar bear's fur is not white; it's transparent.</span><br></div>
+        <div class="fact-tab"><span>44. The word "set" has the highest number of different meanings in the English language.</span><br></div>
+        <div class="fact-tab"><span>45. A group of crows is called a "murder."</span><br></div>
+        <div class="fact-tab"><span>46. Honey never spoils; archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible.</span><br></div>
+        <div class="fact-tab"><span>47. The unicorn is the national animal of Scotland.</span><br></div>
+        <div class="fact-tab"><span>48. The shortest war in history was between Britain and Zanzibar on August 27, 1896, lasting only 38 minutes.</span><br></div>
+        <div class="fact-tab"><span>49. The world's largest snowflake on record was 15 inches wide.</span><br></div>
+        <div class="fact-tab"><span>50. The heart of a shrimp is located in its head.</span><br></div>
+        <div class="fact-tab"><span>51. The longest recorded flight of a chicken is 13 seconds.</span><br></div>
+        <div class="fact-tab"><span>52. The word "bookkeeper" (and its variants) is the only unhyphenated English word with three consecutive double letters.</span><br></div>
+        <div class="fact-tab"><span>53. In Switzerland, it's illegal to own just one guinea pig.</span><br></div>
+        <div class="fact-tab"><span>54. Sea turtles can breathe through their butts.</span><br></div>
+        <div class="fact-tab"><span>55. An average person produces enough saliva in their lifetime to fill two swimming pools.</span><br></div>
+        <div class="fact-tab"><span>56. Cheetahs are the fastest land animals, reaching speeds up to 75 mph.</span><br></div>
+        <div class="fact-tab"><span>57. A baby octopus is the size of a pea when it's born.</span><br></div>
+        <div class="fact-tab"><span>58. Sloths can be found swimming in the ocean.</span><br></div>
+        <div class="fact-tab"><span>59. The longest wedding veil was the same length as 63.5 football fields.</span><br></div>
+        <div class="fact-tab"><span>60. Newborns have approximately 300 bones; adults have 206.</span><br></div>
+        <div class="fact-tab"><span>61. The world's largest snowflake on record was 15 inches wide.</span><br></div>
+        <div class="fact-tab"><span>62. The average lifespan of a taste bud is about 10 days.</span><br></div>
+        <div class="fact-tab"><span>63. Penguins propose to their mates with pebbles.</span><br></div>
+        <div class="fact-tab"><span>64. The first computer mouse was made of wood.</span><br></div>
+        <div class="fact-tab"><span>65. A group of hedgehogs is called a "prickle."</span><br></div>
+        <div class="fact-tab"><span>66. Most lipsticks contain fish scales.</span><br></div>
+        <div class="fact-tab"><span>67. The world's smallest mammal is the bumblebee bat.</span><br></div>
+        <div class="fact-tab"><span>68. A dog’s sense of smell is about 40 times better than a human's.</span><br></div>
+        <div class="fact-tab"><span>69. The hashtag symbol is technically called an octothorpe.</span><br></div>
+        <div class="fact-tab"><span>70. A single cloud can weigh over a million pounds.</span><br></div>
+        <div class="fact-tab"><span>71. Pigs can't look up at the sky.</span><br></div>
+        <div class="fact-tab"><span>72. The average person will spend six months of their life waiting for red lights to turn green.</span><br></div>
+        <div class="fact-tab"><span>73. A baby elephant can weigh over 200 pounds at birth.</span><br></div>
+        <div class="fact-tab"><span>74. In Japan, there are more pets than children.</span><br></div>
+        <div class="fact-tab"><span>75. Hot water freezes faster than cold water (known as the Mpemba effect).</span><br></div>
+        <div class="fact-tab"><span>76. Apples float in water because they are 25% air.</span><br></div>
+        <div class="fact-tab"><span>77. A group of owls is called a "parliament."</span><br></div>
+        <div class="fact-tab"><span>78. The most commonly used letter in the English language is 'E.'</span><br></div>
+        <div class="fact-tab"><span>79. There are more than 7,500 varieties of apples grown in the world.</span><br></div>
+        <div class="fact-tab"><span>80. The Mona Lisa has no eyebrows.</span><br></div>
+        <div class="fact-tab"><span>81. A rhinoceros' horn is made of hair.</span><br></div>
+        <div class="fact-tab"><span>82. The shortest war in history lasted just 38 minutes (between Britain and Zanzibar in 1896).</span><br></div>
+        <div class="fact-tab"><span>83. The average person has about 100,000 hairs on their head.</span><br></div>
+        <div class="fact-tab"><span>84. A shrimp's heart is located in its head.</span><br></div>
+        <div class="fact-tab"><span>85. Most of the world's freshwater is trapped in glaciers.</span><br></div>
+        <div class="fact-tab"><span>86. A jiffy is an actual unit of time: 1/100th of a second.</span><br></div>
+        <div class="fact-tab"><span>87. Humans are the only animals that can cry emotional tears.</span><br></div>
+        <div class="fact-tab"><span>88. The dot over the letter 'i' is called a tittle.</span><br></div>
+        <div class="fact-tab"><span>89. The world’s largest living organism is a fungus in Oregon.</span><br></div>
+        <div class="fact-tab"><span>90. The average person will spend about six months of their life waiting for red lights to turn green.</span><br></div>
+        <div class="fact-tab"><span>91. The largest snowflake ever recorded was 15 inches wide.</span><br></div>
+        <div class="fact-tab"><span>92. Cows have best friends and get stressed when separated.</span><br></div>
+        <div class="fact-tab"><span>93. A group of flamingos is called a "flamboyance."</span><br></div>
+        <div class="fact-tab"><span>94. It's illegal to own just one guinea pig in Switzerland.</span><br></div>
+        <div class="fact-tab"><span>95. The shortest war in history was between Britain and Zanzibar on August 27, 1896.</span><br></div>
+        <div class="fact-tab"><span>96. Elephants are the only mammals that can't jump.</span><br></div>
+        <div class="fact-tab"><span>97. A polar bear's skin is black, and its fur is transparent.</span><br></div>
+        <div class="fact-tab"><span>98. A snail can sleep for three years.</span><br></div>
+        <div class="fact-tab"><span>99. You can hear a blue whale's heartbeat from two miles away.</span><br></div>
+        <div class="fact-tab"><span>100. The first computer mouse was invented in 1964 and was made of wood.</span><br></div>
+        </main>
+        </body>
+        </html>
