@@ -4,166 +4,425 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Facts</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style type="text/css">
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: #e0f7fa;
+        }
+        .header {
+            background-color: rgba(224, 247, 250, 0.9);
+            color: black;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            top: 0;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+        .logo {
+            height: 100px;
+            margin-left: auto;
+        }
+        main {
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #fact-display {
+            background: linear-gradient(145deg, #ffffff, #e0f7fa);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 15px;
+            text-align: center;
+            width: 80%;
+            opacity: 0;
+        }
+        #enlighten-button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 200px;
+            outline: none;
+            transition: transform 0.2s;
+        }
+        #enlighten-button:hover {
+            transform: scale(1.1);
+        }
+        #enlighten-button:active {
+            transform: scale(0.95);
+        }
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        @keyframes shake {
+            0% { transform: translate(0); }
+            25% { transform: translate(-5px, 0); }
+            50% { transform: translate(5px, 0); }
+            75% { transform: translate(-5px, 0); }
+            100% { transform: translate(0); }
+        }
+    </style>
 </head>
 <body>
-<style type="text/css">
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #e0f7fa; /* Light aquamarine background */
-}
-.header {
-    background-color: #e0f7fa; /* Lighter blue/aquamarine shade */
-    color: black; /* Darker text for contrast */
-    padding: 0px 0px; /* Adjust padding */
-    position: fixed; /* Keep header fixed at the top */
-    width: 100%; /* Full width */
-    z-index: 1000; /* Keep it above other content */
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* Optional border for a subtle effect */
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Space items evenly */
-    align-items: center; /* Center items vertically */
-}
-
-.header-content {
-    display: flex; /* Use flexbox for the logo and text */
-    flex-direction: column; /* Stack title and subtitle vertically */
-    margin-left: 20px; /* Add margin for spacing */
-}
-
-.logo {
-    height: 100px; /* Adjust logo size */
-    margin-left: auto; /* This will push logo to the right */
-}
-
-main {
-    padding-top: 60px; /* Space to prevent content from being hidden behind the header */
-}
-
-.fact-tab {
-    background: linear-gradient(145deg, #ffffff, #e0f7fa); /* Changed to white to light aquamarine gradient */
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow effect */
-    margin: 10px; /* Spacing between each fact */
-    padding: 15px; /* Inner spacing */
-    transition: transform 0.2s, box-shadow 0.2s; /* Animation on hover */
-}
-.fact-tab:hover {
-    transform: translateY(-2px); /* Lift effect on hover */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
-</style>
     <header class="header">
         <div class="header-content">
             <h1>Random Facts</h1>
             <p style="font-size: small; margin-top: -25px;">Waste your time reading these.<br> I might add more in the future.</p>
         </div>
-        <img src="logo.png" alt="Logo" class="logo"> <!-- Replace with your logo file -->
+        <img src="logo.png" alt="Logo" class="logo">
     </header>
     
     <main>
-        <div class="fact-tab"><span>0</span></span><br></div>
-        <div class="fact-tab"><span>1. Honey never spoils.</span><br></div>
-        <div class="fact-tab"><span>2. Bananas are berries, but strawberries aren't.</span><br></div>
-        <div class="fact-tab"><span>3. Octopuses have three hearts.</span><br></div>
-        <div class="fact-tab"><span>4. Cows have best friends.</span><br></div>
-        <div class="fact-tab"><span>5. A group of flamingos is called a "flamboyance."</span><br></div>
-        <div class="fact-tab"><span>6. The Eiffel Tower can be 15 cm taller in summer.</span><br></div>
-        <div class="fact-tab"><span>7. Wombat poop is cube-shaped.</span><br></div>
-        <div class="fact-tab"><span>8. Humans share 50% of their DNA with bananas.</span><br></div>
-        <div class="fact-tab"><span>9. The shortest war lasted 38 minutes (Britain vs. Zanzibar).</span><br></div>
-        <div class="fact-tab"><span>10. A jiffy is an actual unit of time (1/100th of a second).</span><br></div>
-        <div class="fact-tab"><span>11. An octopus can taste with its arms.</span><br></div>
-        <div class="fact-tab"><span>12. The longest time between two twins being born is 87 days.</span><br></div>
-        <div class="fact-tab"><span>13. A snail can sleep for three years.</span><br></div>
-        <div class="fact-tab"><span>14. Sea otters hold hands when sleeping.</span><br></div>
-        <div class="fact-tab"><span>15. A day on Venus is longer than a year on Venus.</span><br></div>
-        <div class="fact-tab"><span>16. The world's largest desert is Antarctica.</span><br></div>
-        <div class="fact-tab"><span>17. Cheetahs can't roar, but they can meow.</span><br></div>
-        <div class="fact-tab"><span>18. Elephants are the only mammals that can't jump.</span><br></div>
-        <div class="fact-tab"><span>19. The fingerprints of a koala are so close to humans' that they can taint crime scenes.</span><br></div>
-        <div class="fact-tab"><span>20. Sloths can hold their breath longer than dolphins can.</span><br></div>
-        <div class="fact-tab"><span>21. The heart of a blue whale is as big as a small car.</span><br></div>
-        <div class="fact-tab"><span>22. A single strand of spaghetti is called a "spaghetto."</span><br></div>
-        <div class="fact-tab"><span>23. Avocados are toxic to birds.</span><br></div>
-        <div class="fact-tab"><span>24. The inventor of the Pringles can is buried in one.</span><br></div>
-        <div class="fact-tab"><span>25. Banging your head against a wall burns 150 calories an hour.</span><br></div>
-        <div class="fact-tab"><span>26. The world's oldest known "your mom" joke is 3,500 years old.</span><br></div>
-        <div class="fact-tab"><span>27. A crocodile can't stick its tongue out.</span><br></div>
-        <div class="fact-tab"><span>28. The dot over the lowercase "i" is called a tittle.</span><br></div>
-        <div class="fact-tab"><span>29. A shark is the only fish that can blink with both eyes.</span><br></div>
-        <div class="fact-tab"><span>30. The world's smallest reptile was discovered in 2021.</span><br></div>
-        <div class="fact-tab"><span>31. The word "nerd" was first coined by Dr. Seuss in "If I Ran the Zoo."</span><br></div>
-        <div class="fact-tab"><span>32. Butterflies taste with their feet.</span><br></div>
-        <div class="fact-tab"><span>33. Humans are the only animals that blush.</span><br></div>
-        <div class="fact-tab"><span>34. A lion's roar can be heard from five miles away.</span><br></div>
-        <div class="fact-tab"><span>35. The average person walks the equivalent of three times around the world in a lifetime.</span><br></div>
-        <div class="fact-tab"><span>36. There are more fake flamingos in the U.S. than real ones.</span><br></div>
-        <div class="fact-tab"><span>37. The inventor of the microwave oven was Raytheon engineer Percy Spencer.</span><br></div>
-        <div class="fact-tab"><span>38. A goldfish can live for over 40 years.</span><br></div>
-        <div class="fact-tab"><span>39. A group of jellyfish is called a "smack."</span><br></div>
-        <div class="fact-tab"><span>40. Most of the dust in your home is made of dead skin cells.</span><br></div>
-        <div class="fact-tab"><span>41. The longest place name in the world is 85 letters long.</span><br></div>
-        <div class="fact-tab"><span>42. You can hear a blue whale's heartbeat from over two miles away.</span><br></div>
-        <div class="fact-tab"><span>43. A polar bear's fur is not white; it's transparent.</span><br></div>
-        <div class="fact-tab"><span>44. The word "set" has the highest number of different meanings in the English language.</span><br></div>
-        <div class="fact-tab"><span>45. A group of crows is called a "murder."</span><br></div>
-        <div class="fact-tab"><span>46. Honey never spoils; archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible.</span><br></div>
-        <div class="fact-tab"><span>47. The unicorn is the national animal of Scotland.</span><br></div>
-        <div class="fact-tab"><span>48. The shortest war in history was between Britain and Zanzibar on August 27, 1896, lasting only 38 minutes.</span><br></div>
-        <div class="fact-tab"><span>49. The world's largest snowflake on record was 15 inches wide.</span><br></div>
-        <div class="fact-tab"><span>50. The heart of a shrimp is located in its head.</span><br></div>
-        <div class="fact-tab"><span>51. The longest recorded flight of a chicken is 13 seconds.</span><br></div>
-        <div class="fact-tab"><span>52. The word "bookkeeper" (and its variants) is the only unhyphenated English word with three consecutive double letters.</span><br></div>
-        <div class="fact-tab"><span>53. In Switzerland, it's illegal to own just one guinea pig.</span><br></div>
-        <div class="fact-tab"><span>54. Sea turtles can breathe through their butts.</span><br></div>
-        <div class="fact-tab"><span>55. An average person produces enough saliva in their lifetime to fill two swimming pools.</span><br></div>
-        <div class="fact-tab"><span>56. Cheetahs are the fastest land animals, reaching speeds up to 75 mph.</span><br></div>
-        <div class="fact-tab"><span>57. A baby octopus is the size of a pea when it's born.</span><br></div>
-        <div class="fact-tab"><span>58. Sloths can be found swimming in the ocean.</span><br></div>
-        <div class="fact-tab"><span>59. The longest wedding veil was the same length as 63.5 football fields.</span><br></div>
-        <div class="fact-tab"><span>60. Newborns have approximately 300 bones; adults have 206.</span><br></div>
-        <div class="fact-tab"><span>61. The world's largest snowflake on record was 15 inches wide.</span><br></div>
-        <div class="fact-tab"><span>62. The average lifespan of a taste bud is about 10 days.</span><br></div>
-        <div class="fact-tab"><span>63. Penguins propose to their mates with pebbles.</span><br></div>
-        <div class="fact-tab"><span>64. The first computer mouse was made of wood.</span><br></div>
-        <div class="fact-tab"><span>65. A group of hedgehogs is called a "prickle."</span><br></div>
-        <div class="fact-tab"><span>66. Most lipsticks contain fish scales.</span><br></div>
-        <div class="fact-tab"><span>67. The world's smallest mammal is the bumblebee bat.</span><br></div>
-        <div class="fact-tab"><span>68. A dog’s sense of smell is about 40 times better than a human's.</span><br></div>
-        <div class="fact-tab"><span>69. The hashtag symbol is technically called an octothorpe.</span><br></div>
-        <div class="fact-tab"><span>70. A single cloud can weigh over a million pounds.</span><br></div>
-        <div class="fact-tab"><span>71. Pigs can't look up at the sky.</span><br></div>
-        <div class="fact-tab"><span>72. The average person will spend six months of their life waiting for red lights to turn green.</span><br></div>
-        <div class="fact-tab"><span>73. A baby elephant can weigh over 200 pounds at birth.</span><br></div>
-        <div class="fact-tab"><span>74. In Japan, there are more pets than children.</span><br></div>
-        <div class="fact-tab"><span>75. Hot water freezes faster than cold water (known as the Mpemba effect).</span><br></div>
-        <div class="fact-tab"><span>76. Apples float in water because they are 25% air.</span><br></div>
-        <div class="fact-tab"><span>77. A group of owls is called a "parliament."</span><br></div>
-        <div class="fact-tab"><span>78. The most commonly used letter in the English language is 'E.'</span><br></div>
-        <div class="fact-tab"><span>79. There are more than 7,500 varieties of apples grown in the world.</span><br></div>
-        <div class="fact-tab"><span>80. The Mona Lisa has no eyebrows.</span><br></div>
-        <div class="fact-tab"><span>81. A rhinoceros' horn is made of hair.</span><br></div>
-        <div class="fact-tab"><span>82. The shortest war in history lasted just 38 minutes (between Britain and Zanzibar in 1896).</span><br></div>
-        <div class="fact-tab"><span>83. The average person has about 100,000 hairs on their head.</span><br></div>
-        <div class="fact-tab"><span>84. A shrimp's heart is located in its head.</span><br></div>
-        <div class="fact-tab"><span>85. Most of the world's freshwater is trapped in glaciers.</span><br></div>
-        <div class="fact-tab"><span>86. A jiffy is an actual unit of time: 1/100th of a second.</span><br></div>
-        <div class="fact-tab"><span>87. Humans are the only animals that can cry emotional tears.</span><br></div>
-        <div class="fact-tab"><span>88. The dot over the letter 'i' is called a tittle.</span><br></div>
-        <div class="fact-tab"><span>89. The world’s largest living organism is a fungus in Oregon.</span><br></div>
-        <div class="fact-tab"><span>90. The average person will spend about six months of their life waiting for red lights to turn green.</span><br></div>
-        <div class="fact-tab"><span>91. The largest snowflake ever recorded was 15 inches wide.</span><br></div>
-        <div class="fact-tab"><span>92. Cows have best friends and get stressed when separated.</span><br></div>
-        <div class="fact-tab"><span>93. A group of flamingos is called a "flamboyance."</span><br></div>
-        <div class="fact-tab"><span>94. It's illegal to own just one guinea pig in Switzerland.</span><br></div>
-        <div class="fact-tab"><span>95. The shortest war in history was between Britain and Zanzibar on August 27, 1896.</span><br></div>
-        <div class="fact-tab"><span>96. Elephants are the only mammals that can't jump.</span><br></div>
-        <div class="fact-tab"><span>97. A polar bear's skin is black, and its fur is transparent.</span><br></div>
-        <div class="fact-tab"><span>98. A snail can sleep for three years.</span><br></div>
-        <div class="fact-tab"><span>99. You can hear a blue whale's heartbeat from two miles away.</span><br></div>
-        <div class="fact-tab"><span>100. The first computer mouse was invented in 1964 and was made of wood.</span><br></div>
-        </main>
-        </body>
-        </html>
+        <div id="enlighten-button">Enlighten Me</div>
+        <div id="fact-display">Click the button to get a random fact!</div>
+    </main>
+
+    <script>
+        const facts = [
+            "Honey never spoils.",
+            "Bananas are berries, but strawberries aren't.",
+            "Octopuses have three hearts.",
+            "Cows have best friends.",
+            "A group of flamingos is called a 'flamboyance.'",
+            "The Eiffel Tower can be 15 cm taller in summer.",
+            "Wombat poop is cube-shaped.",
+            "Humans share 50% of their DNA with bananas.",
+            "The shortest war lasted 38 minutes (Britain vs. Zanzibar).",
+            "A jiffy is an actual unit of time (1/100th of a second).",
+            "Butterflies taste with their feet.",
+            "A day on Venus is longer than a year on Venus.",
+            "A group of crows is called a 'murder.'",
+            "A shrimp's heart is in its head.",
+            "Polar bear skin is black, and its fur is transparent.",
+            "Koalas have fingerprints very similar to humans.",
+            "Sloths can hold their breath longer than dolphins can.",
+            "A single strand of spaghetti is called a 'spaghetto.'",
+            "The unicorn is the national animal of Scotland.",
+            "The world's largest desert is Antarctica.",
+            "Cats have over 20 muscles that control their ears.",
+            "A snail can sleep for three years.",
+            "The inventor of the frisbee was turned into a frisbee after he died.",
+            "A chicken can live without its head for several minutes.",
+            "The longest wedding veil was longer than 63 football fields.",
+            "You can hear a blue whale's heartbeat from more than 2 miles away.",
+            "A group of jellyfish is called a 'smack.'",
+            "Cheetahs can't roar; they can only make a chattering sound.",
+            "Peanuts are not nuts; they're legumes.",
+            "A bear's fur is not actually black; it's brown.",
+            "Octopuses have blue blood.",
+            "The world's largest snowflake was recorded at 15 inches wide.",
+            "Banging your head against a wall burns 150 calories an hour.",
+            "Avocados are toxic to birds.",
+            "The inventor of the chocolate chip cookie sold the idea to Nestle Toll House in exchange for a lifetime supply of chocolate.",
+            "There are more stars in the universe than grains of sand on all the Earth’s beaches.",
+            "A single bolt of lightning contains enough energy to toast 100,000 slices of bread.",
+            "Horses and cows sleep standing up.",
+            "The shortest commercial flight in the world lasts just 57 seconds.",
+            "Sea otters hold hands while sleeping to avoid drifting apart.",
+            "There are more fake flamingos in the world than real ones.",
+            "More people are killed by vending machines than by sharks each year.",
+            "Bananas glow blue under black lights.",
+            "Banging your head against a wall for one hour burns 150 calories.",
+            "The longest time between two twins being born is 87 days.",
+            "Sharks are the only fish that can blink with both eyes.",
+            "The inventor of the lightbulb was afraid of the dark.",
+            "A cow gives nearly 200,000 glasses of milk in its lifetime.",
+            "A duck's quack doesn't echo, and nobody knows why.",
+            "The average person walks the equivalent of five times around the world in their lifetime.",
+            "A group of frogs is called an 'army.'",
+            "More than 1,000 different species of plants can be found in a single square meter of rainforest.",
+            "A goldfish has a memory span of three seconds.",
+            "A cat has 32 muscles in each ear.",
+            "Scotland's national animal is a unicorn.",
+            "Some cats are allergic to humans.",
+            "A female kangaroo is called a 'flyer.'",
+            "The heart of a shrimp is located in its head.",
+            "The longest recorded flight of a chicken is 13 seconds.",
+            "The world's largest snowflake on record was 15 inches wide.",
+            "A baby octopus is the size of a flea when it's born.",
+            "Koalas have fingerprints that are almost indistinguishable from human fingerprints.",
+            "In Switzerland, it is illegal to own just one guinea pig.",
+            "The average cloud weighs about 1.1 million pounds.",
+            "The Mona Lisa has no eyebrows.",
+            "Some cats are allergic to humans.",
+            "The fingerprints of a koala are so close to humans that they can taint crime scenes.",
+            "It's illegal to own a pet hamster in Hawaii.",
+            "Humans are the only animals that blush.",
+            "Pigs can't look up at the sky.",
+            "The world's largest pizza was made in Italy in 2012 and measured 1261.65 square meters.",
+            "There are more than 7,500 varieties of apples in the world.",
+            "In Japan, there are more pets than children.",
+            "The dot over the letters 'i' and 'j' is called a 'tittle.'",
+            "A shark can detect one drop of blood in 25 gallons of water.",
+            "A group of owls is called a 'parliament.'",
+            "The average person will spend six months of their life waiting for red lights to turn green.",
+            "The elephant is the only mammal that can't jump.",
+            "Sloths can hold their breath for up to 40 minutes.",
+            "A group of hedgehogs is called a 'prickle.'",
+            "The first product to have a barcode was Wrigley’s gum.",
+            "A crocodile can't stick its tongue out.",
+            "A group of unicorns is called a 'blessing.'",
+            "The world's largest chocolate bar weighed over 12,000 pounds.",
+            "Tigers have striped skin, not just striped fur.",
+            "A jellyfish is 95% water.",
+            "A group of flamingos is called a 'flamboyance.'",
+            "Squirrels plant thousands of new trees each year simply by forgetting where they buried their acorns.",
+            "The average lifespan of a taste bud is about 10 to 14 days.",
+            "In the UK, it is illegal to handle a salmon under suspicious circumstances.",
+            "A snail can sleep for three years.",
+            "The longest recorded flight of a chicken is 13 seconds.",
+            "The average person produces enough saliva in their lifetime to fill two swimming pools.",
+            "Some cats are allergic to humans.",
+            "The world's largest desert is Antarctica.",
+            "A group of pugs is called a 'grumble.'",
+            "Elephants are the only mammals that can't jump.",
+            "A group of porcupines is called a 'prickle.'",
+            "Bananas are berries, but strawberries aren't.",
+            "Humans are the only animals that blush.",
+            "Octopuses have three hearts.",
+            "A bolt of lightning contains enough energy to toast 100,000 slices of bread.",
+            "Honey never spoils; archaeologists have found pots of honey in ancient Egyptian tombs that are over 3000 years old and still edible.",
+            "The unicorn is the national animal of Scotland.",
+            "A small child could swim through the veins of a blue whale.",
+            "The inventor of the Frisbee was turned into a Frisbee after he died.",
+            "An octopus can taste with its arms.",
+            "More people have cell phones than toilets.",
+            "Sea otters hold hands while sleeping to keep from drifting apart.",
+            "There's a species of jellyfish that is immortal.",
+            "Wombat poop is cube-shaped.",
+            "A group of owls is called a parliament.",
+            "It takes 8 minutes and 20 seconds for light from the sun to reach Earth.",
+            "A bolt of lightning is five times hotter than the surface of the sun.",
+            "Sloths can hold their breath longer than dolphins can.",
+            "The world's oldest known breed of domesticated dog is the Saluki.",
+            "The Eiffel Tower can be 15 cm taller during the summer.",
+            "A day on Venus is longer than a year on Venus.",
+            "Honey is the only food that never goes bad.",
+            "The shortest war in history was between Britain and Zanzibar on August 27, 1896. Zanzibar surrendered after 38 minutes.",
+            "The average person will spend six months of their life waiting for red lights to turn green.",
+            "The world's largest snowflake on record was 15 inches wide.",
+            "A snail can sleep for three years.",
+            "The first alarm clock could only ring at 4 a.m.",
+            "A flock of crows is known as a murder.",
+            "Elephants are the only animals that can't jump.",
+            "A group of flamingos is called a flamboyance.",
+            "The heart of a shrimp is located in its head.",
+            "The average person produces about 25,000 quarts of saliva in a lifetime.",
+            "A bear's fur is not actually black; it's brown.",
+            "Butterflies taste with their feet.",
+            "The longest recorded flight of a chicken is 13 seconds.",
+            "The fingerprints of a koala are so close to humans that they can taint crime scenes.",
+            "A jellyfish is 95% water.",
+            "The average lifespan of a taste bud is about 10 to 14 days.",
+            "A crocodile can't stick its tongue out.",
+            "In the UK, it is illegal to handle a salmon under suspicious circumstances.",
+            "A group of frogs is called an army.",
+            "The world's largest pizza was made in Italy in 2012 and measured 1261.65 square meters.",
+            "A goldfish can see both infrared and ultraviolet light.",
+            "The first product to have a barcode was Wrigley’s gum.",
+            "A group of jellyfish is called a smack.",
+            "The longest wedding veil was longer than 63 football fields.",
+            "The average cloud weighs about 1.1 million pounds.",
+            "Some cats are allergic to humans.",
+            "The average person will spend six months of their life waiting for red lights to turn green.",
+            "Tigers have striped skin, not just striped fur.",
+            "Humans share 50% of their DNA with bananas.",
+            "The shortest war in history lasted 38 minutes.",
+            "A chicken can live without its head for several minutes.",
+            "The average lifespan of a taste bud is about 10 to 14 days.",
+            "A group of frogs is called an army.",
+            "A shrimp's heart is in its head.",
+            "The average person walks the equivalent of five times around the world in their lifetime.",
+            "In Japan, there are more pets than children.",
+            "A bear's fur is not actually black; it's brown.",
+            "A duck's quack doesn't echo, and nobody knows why.",
+            "A panda's diet is 99% bamboo.",
+            "The fingerprints of a koala are so close to humans that they can taint crime scenes.",
+            "A group of jellyfish is called a smack.",
+            "Horses and cows sleep standing up.",
+            "The world's largest desert is Antarctica.",
+            "The first product to have a barcode was Wrigley’s gum.",
+            "A goldfish can see both infrared and ultraviolet light.",
+            "The average cloud weighs about 1.1 million pounds.",
+            "Tigers have striped skin, not just striped fur.",
+            "The world's largest chocolate bar weighed over 12,000 pounds.",
+            "Humans share 50% of their DNA with bananas.",
+            "The shortest war in history lasted 38 minutes.",
+            "A chicken can live without its head for several minutes.",
+            "The average lifespan of a taste bud is about 10 to 14 days.",
+            "The longest recorded flight of a chicken is 13 seconds.",
+            "A group of frogs is called an army.",
+            "The heart of a shrimp is located in its head.",
+            "The longest wedding veil was longer than 63 football fields.",
+            "A snail can sleep for three years.",
+            "The world's largest snowflake was recorded at 15 inches wide.",
+            "A group of unicorns is called a blessing.",
+            "The average person will spend six months of their life waiting for red lights to turn green.",
+            "A group of crows is called a murder.",
+            "The longest place name in the world is 85 letters long.",
+            "A panda's diet is 99% bamboo.",
+            "Some cats are allergic to humans.",
+            "The average lifespan of a taste bud is about 10 to 14 days.",
+            "A goldfish can see both infrared and ultraviolet light.",
+            "The fingerprints of a koala are so close to humans that they can taint crime scenes.",
+            "The first product to have a barcode was Wrigley’s gum.",
+            "A crocodile can't stick its tongue out.",
+            "The average cloud weighs about 1.1 million pounds.",
+            "The world's largest pizza was made in Italy in 2012 and measured 1261.65 square meters.",
+            "A group of flamingos is called a flamboyance.",
+            "A jellyfish is 95% water.",
+            "The world's largest snowflake was recorded at 15 inches wide.",
+            "In Japan, there are more pets than children.",
+            "A bear's fur is not actually black; it's brown.",
+            "A shrimp's heart is in its head.",
+            "The average lifespan of a taste bud is about 10 to 14 days.",
+            "The longest wedding veil was longer than 63 football fields.",
+            "A group of frogs is called an army.",
+            "The longest recorded flight of a chicken is 13 seconds.",
+            "A panda's diet is 99% bamboo.",
+            "A duck's quack doesn't echo, and nobody knows why.",
+            "Horses and cows sleep standing up.",
+            "The world's largest chocolate bar weighed over 12,000 pounds.",
+            "The fingerprints of a koala are so close to humans that they can taint crime scenes.",
+            "Some cats are allergic to humans.",
+            "The heart of a shrimp is located in its head.",
+            "The average person spends six months of their life waiting for red lights to turn green.",
+            "A group of jellyfish is called a smack.",
+            "The longest time between two twins being born is 87 days.",
+            "The average cloud weighs about 1.1 million pounds.",
+            "A duck's quack doesn't echo, and nobody knows why.",
+            "A group of unicorns is called a blessing.",
+            "A bear's fur is not actually black; it's brown.",
+            "A jellyfish is 95% water.",
+            "The average person produces enough saliva in their lifetime to fill two swimming pools.",
+            "A goldfish can see both infrared and ultraviolet light.",
+            "The world's largest pizza was made in Italy in 2012 and measured 1261.65 square meters.",
+            "A group of flamingos is called a flamboyance.",
+            "The first product to have a barcode was Wrigley’s gum.",
+            "A crocodile can't stick its tongue out.",
+            "The average person will spend six months of their life waiting for red lights to turn green.",
+            "The longest recorded flight of a chicken is 13 seconds.",
+            "Some cats are allergic to humans.",
+            "A group of jellyfish is called a smack.",
+            "A panda's diet is 99% bamboo.",
+            "A duck's quack doesn't echo, and nobody knows why.",
+            "Horses and cows sleep standing up.",
+            "The average cloud weighs about 1.1 million pounds.",
+            "The average person produces about 25,000 quarts of saliva in a lifetime.",
+            "A bear's fur is not actually black; it's brown.",
+            "A shrimp's heart is in its head.",
+            "The average lifespan of a taste bud is about 10 to 14 days.",
+            "A jellyfish is 95% water.",
+            "A crocodile can't stick its tongue out.",
+            "A group of crows is called a murder.",
+            "The longest place name in the world is 85 letters long.",
+            "The average person will spend six months of their life waiting for red lights to turn green.",
+            "In the UK, it is illegal to handle a salmon under suspicious circumstances.",
+            "A group of frogs is called an army.",
+            "The heart of a shrimp is located in its head.",
+            "A panda's diet is 99% bamboo.",
+            "A duck's quack doesn't echo, and nobody knows why.",
+            "A goldfish can see both infrared and ultraviolet light.",
+            "The world's largest chocolate bar weighed over 12,000 pounds.",
+            "The longest recorded flight of a chicken is 13 seconds.",
+            "A group of jellyfish is called a smack.",
+            "Horses and cows sleep standing up.",
+            "The world's largest snowflake was recorded at 15 inches wide.",
+            "The average lifespan of a taste bud is about 10 to 14 days.",
+            "A bear's fur is not actually black; it's brown.",
+            "The fingerprints of a koala are so close to humans that they can taint crime scenes.",
+            "Some cats are allergic to humans.",
+            "The world's largest pizza was made in Italy in 2012 and measured 1261.65 square meters.",
+            "The first product to have a barcode was Wrigley’s gum.",
+            "The average person produces enough saliva in their lifetime to fill two swimming pools.",
+            "A crocodile can't stick its tongue out.",
+            "The average cloud weighs about 1.1 million pounds.",
+            "A group of flamingos is called a flamboyance.",
+            "A jellyfish is 95% water.",
+            "A snail can sleep for three years.",
+            "A group of frogs is called an army.",
+            "A shrimp's heart is in its head.",
+            "The average person will spend six months of their life waiting for red lights to turn green.",
+            "The longest wedding veil was longer than 63 football fields.",
+            "Tigers have striped skin, not just striped fur.",
+            "The world's largest chocolate bar weighed over 12,000 pounds.",
+            "Humans share 50% of their DNA with bananas.",
+            "The shortest war in history lasted 38 minutes.",
+            "A chicken can live without its head for several minutes.",
+            "A panda's diet is 99% bamboo.",
+            "Some cats are allergic to humans.",
+            "A goldfish can see both infrared and ultraviolet light.",
+            "The world's largest pizza was made in Italy in 2012 and measured 1261.65 square meters.",
+            "A group of flamingos is called a flamboyance.",
+            "A duck's quack doesn't echo, and nobody knows why.",
+            "The average person produces about 25,000 quarts of saliva in a lifetime.",
+            "Butterflies taste with their feet.",
+            "The first product to have a barcode was Wrigley’s gum.",
+            "The longest recorded flight of a chicken is 13 seconds.",
+            "A group of crows is called a murder.",
+            "A panda's diet is 99% bamboo.",
+            "The average cloud weighs about 1.1 million pounds.",
+            "A jellyfish is 95% water.",
+            "The heart of a shrimp is located in its head.",
+            "The longest place name in the world is 85 letters long.",
+            "Horses and cows sleep standing up.",
+            "A bear's fur is not actually black; it's brown.",
+            "A group of frogs is called an army.",
+            "The longest wedding veil was longer than 63 football fields.",
+            "The average lifespan of a taste bud is about 10 to 14 days.",
+            "A goldfish can see both infrared and ultraviolet light.",
+            "Some cats are allergic to humans.",
+            "The fingerprints of a koala are so close to humans that they can taint crime scenes.",
+            "The world's largest chocolate bar weighed over 12,000 pounds."
+        ];
+
+        let seenFacts = [];
+
+        document.getElementById("enlighten-button").addEventListener("click", function() {
+            const factDisplay = document.getElementById("fact-display");
+            factDisplay.style.animation = ''; // Reset animation
+
+            if (seenFacts.length === facts.length) {
+                factDisplay.innerText = "No more facts available!";
+            } else {
+                let randomIndex;
+                do {
+                    randomIndex = Math.floor(Math.random() * facts.length);
+                } while (seenFacts.includes(randomIndex));
+                seenFacts.push(randomIndex);
+                factDisplay.innerText = facts[randomIndex];
+            }
+
+            factDisplay.style.opacity = 0; 
+            factDisplay.style.animation = 'shake 0.5s forwards'; // Shake animation
+            setTimeout(() => {
+                factDisplay.style.animation = 'popIn 0.5s forwards'; // Pop-in animation
+                factDisplay.style.opacity = 1; 
+            }, 200);
+        });
+    </script>
+</body>
+</html>
